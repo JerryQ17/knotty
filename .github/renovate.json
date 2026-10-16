@@ -1,0 +1,52 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "enabledManagers": [
+    "cargo",
+    "github-actions"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "packageRules": [
+    {
+      "description": "Group non-breaking Rust updates",
+      "matchManagers": [
+        "cargo"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchIsBreaking": false,
+      "groupName": "Rust dependencies (non-breaking)"
+    },
+    {
+      "description": "Group non-major GitHub Actions updates",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin"
+      ],
+      "groupName": "GitHub Actions (non-major)"
+    },
+    {
+      "description": "Flag breaking dependency updates",
+      "matchIsBreaking": true,
+      "addLabels": [
+        "breaking-change"
+      ],
+      "automerge": false
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  }
+}

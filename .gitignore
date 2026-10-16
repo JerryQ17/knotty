@@ -1,0 +1,27 @@
+# See https://rgbcu.be/blog/gitignore/
+*
+
+# CI
+!.github/
+!.github/workflows/
+!.github/renovate.json
+!.github/workflows/*.yml
+
+# Git
+!.gitattributes
+!.gitignore
+
+# Just
+!Justfile
+
+# Miscellaneous
+!LICENSE-APACHE
+!LICENSE-MIT
+!README.md
+
+# Rust
+!crates/
+!crates/**/
+!crates/**/*.rs
+!Cargo.toml
+!Cargo.lock
