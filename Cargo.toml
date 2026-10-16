@@ -1,0 +1,20 @@
+[workspace]
+resolver = "3"
+members = ["crates/knotty_core"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+description = "A programmable multi-agent harness with dynamic execution graphs."
+readme = "README.md"
+repository = "https://github.com/JerryQ17/knotty"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[workspace.dependencies]
+
+[workspace.lints.clippy]
+blanket_clippy_restriction_lints = "allow"
+# See https://billylevin.dev/posts/clippy-config/
+pedantic = { level = "warn", priority = -1 }
+restriction = { level = "warn", priority = -1 }
